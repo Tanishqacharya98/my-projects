@@ -1,0 +1,246 @@
+/* mybooking.css */
+
+/* Container base */
+.my-bookings-page {
+  padding: 20px;
+  background: #f7f9fc;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+   background-image: url('https://i.gifer.com/origin/a0/a0ffa6086103e712cd05d0fce2b801aa_w200.webp'); /* yahan apni image ka path daalo */
+  background-size: cover;           /* poora area cover ho jaye */
+  background-position: center;      /* image center me rahe */
+  background-repeat: no-repeat;     /* image repeat na ho */
+  min-height: 100vh;
+}
+
+/* Heading */
+.my-bookings-page h2 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #1976d2; /* MUI primary color */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Book Now button */
+.book-now-btn {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 12px 25px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  user-select: none;
+  text-align: center;
+  display: block;
+}
+
+.book-now-btn:hover,
+.book-now-btn:focus {
+  background-color: #115293;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Booking List Container */
+.booking-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 15px;
+}
+
+/* Booking Card */
+.booking-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 18px 22px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.booking-card:hover,
+.booking-card:focus-within {
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.25);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+/* Hostel Image inside card */
+.booking-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+  pointer-events: none; /* prevent image drag */
+}
+
+/* Zoom effect on hover */
+.booking-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Booking info text */
+.booking-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #424242;
+}
+
+/* Strong text in booking details */
+.booking-card strong {
+  color: #1976d2;
+}
+
+/* Status badges */
+.booked {
+  color: #2e7d32; /* green */
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cancelled {
+  color: #d32f2f; /* red */
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Cancel button */
+.cancel-btn {
+  margin-top: auto;
+  align-self: flex-end;
+  background-color: #d32f2f;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.cancel-btn:hover,
+.cancel-btn:focus {
+  background-color: #9a0007;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Skeleton Loading */
+.MuiSkeleton-root {
+  border-radius: 12px !important;
+}
+
+/* Search and Filter Section */
+.search-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.search-filter-container input,
+.search-filter-container select {
+  min-width: 200px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1.5px solid #ddd;
+  transition: border-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search-filter-container input:focus,
+.search-filter-container select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.3);
+}
+
+/* Pagination */
+.MuiPagination-root {
+  margin-top: 25px;
+  user-select: none;
+}
+
+/* Highlight upcoming bookings */
+.booking-card.upcoming {
+  border: 2px solid #1976d2;
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .booking-list {
+    justify-content: center;
+  }
+  .booking-card {
+    width: 90%;
+  }
+  .search-filter-container input,
+  .search-filter-container select {
+    min-width: 100%;
+  }
+}
+
+/* Accessibility focus */
+.booking-card:focus-visible,
+.book-now-btn:focus-visible,
+.cancel-btn:focus-visible {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Snackbar style (overrides Material UI default for better visibility) */
+.MuiSnackbar-root {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Dialog Title Styling */
+.MuiDialogTitle-root {
+  font-weight: 700;
+  color: #1976d2;
+  letter-spacing: 0.03em;
+}
+
+/* Dialog Content Text */
+.MuiDialogContentText-root {
+  font-size: 1.1rem;
+  color: #424242;
+}
+
+/* Buttons in Dialog */
+.MuiDialogActions-root button {
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 24px;
+  transition: background-color 0.3s ease;
+}
+
+.MuiDialogActions-root button:hover {
+  filter: brightness(0.9);
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.25s ease;
+}
